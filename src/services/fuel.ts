@@ -25,5 +25,15 @@ const addFuelLog = async (payload: IAddFuelLog) => {
 	}
 };
 
-export { addFuelLog };
+const getTripFuel = async (tripId: number) => {
+	try {
+		const fuelLog = await prisma.fuelLog.findMany({ where: { tripId } });
+		return fuelLog;
+	} catch (error) {
+		console.log(error);
+		throw new Error((error as Error).message);
+	}
+};
+
+export { addFuelLog, getTripFuel };
 
