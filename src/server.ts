@@ -2,10 +2,12 @@ import express, { Request, Response } from "express";
 import "dotenv/config";
 import { createTrip, getTripById, getTripList } from "./services/trip";
 import { addFuelLog, getTripFuel } from "./services/fuel";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT ?? 4000;
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {
