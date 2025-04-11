@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 const prisma = new PrismaClient();
 
 const addFuelLog = async (payload: IAddFuelLog) => {
-	const { tripId, date, liters, pricePerLiter, totalCost, stationName, notes } = payload;
+	const { tripId, date, liters, pricePerLiter, totalCost, station, notes } = payload;
 	try {
 		const fuelLog = await prisma.fuelLog.create({
 			data: {
@@ -14,7 +14,7 @@ const addFuelLog = async (payload: IAddFuelLog) => {
 				liters,
 				pricePerLiter,
 				totalCost,
-				stationName,
+				station,
 				notes,
 			},
 		});

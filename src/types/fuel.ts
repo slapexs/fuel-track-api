@@ -6,7 +6,7 @@ export interface IAddFuelLog {
 	liters: number;
 	pricePerLiter: number;
 	totalCost: number;
-	stationName: GasStatusEnum;
+	station: GasStatusEnum;
 	notes?: string;
 }
 
